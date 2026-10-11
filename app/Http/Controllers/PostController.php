@@ -12,7 +12,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('post.lista');
     }
 
     /**
@@ -20,7 +20,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.dodaj');
     }
 
     /**
@@ -28,7 +28,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tytul' => [
+                'required',
+                'min:3',
+                'max:200'
+                ],
+            'autor' => 'required|min:2|max:100',
+            'email' => 'required|email:rfc,dns|min:3|max:200',
+            'tresc' => 'required|min:5'
+        ]);
+        return redirect()->route('post.index')->with('message','Dodano poprawnie post');
     }
 
     /**
