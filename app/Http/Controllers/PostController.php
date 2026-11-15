@@ -42,11 +42,12 @@ class PostController extends Controller
             'tresc' => 'required|min:5'
         ]); */
         $post = new Post();
-        $post->tytul = request('tytul');
+        /* $post->tytul = request('tytul');
         $post->autor = $request['autor'];
         $post->email = request('email');
         $post->tresc = request('tresc');
-        $post->save();
+        $post->save(); */
+        $post->create($request->all());
         return redirect()->route('post.index')->with('message','Dodano poprawnie post');
     }
 
@@ -63,7 +64,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return $post;
+        return view('post.zmien', compact('post'));
     }
 
     /**
@@ -72,7 +73,8 @@ class PostController extends Controller
     //public function update(Request $request, Post $post)
     public function update(PostRequest $request, Post $post)
     {
-        //
+        $post->update($request->all());
+        return redirect(route('post.index'))->with('message', 'Uaktualniono poprawnie post');
     }
 
     /**
