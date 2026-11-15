@@ -26,11 +26,16 @@
         <div class="flex items-center ">
             @auth
             <a href="{{route('post.edit', $post->id)}}">
-                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">Edytuj post</button>
+                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline mx-1">Edytuj post</button>
             </a>
+            <form action="{{route('post.destroy',$post->id)}}" method="post" onsubmit="return confirm('Czy na pewno chcesz usunąć ten post?')">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 mx-1 rounded-lg focus:outline-none focus:shadow-outline">Usuń post</button>
+            </form>
             @endauth
             <a href="{{route('post.index')}}">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">Powrót do listy</button>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline mx-1">Powrót do listy</button>
             </a>
         </div>
     
