@@ -19,8 +19,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posty = Post::all();
-        $posty = Post::paginate(5);
+        //$posty = Post::all();
+        $posty = Post::with('user')->paginate(10);
         return view('post.lista', compact('posty'));
     }
 
@@ -54,6 +54,7 @@ class PostController extends Controller
         $post->email = request('email');
         $post->tresc = request('tresc');
         $post->save(); */
+        $request->merge(['user_id' => Auth::user()->id]);
         $post->create($request->all());
         return redirect()->route('post.index')->with('message','Dodano poprawnie post');
     }
@@ -80,7 +81,10 @@ class PostController extends Controller
     //public function update(Request $request, Post $post)
     public function update(PostRequest $request, Post $post)
     {
-        $post->update($request->all());
+        //$post->update($request->all());
+        $dane=$request->all();
+        $dane['user_id'] = Auth::user()->id;
+        $post->update($dane);
         return redirect(route('post.index'))->with('message', 'Uaktualniono poprawnie post');
     }
 

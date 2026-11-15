@@ -33,7 +33,8 @@
                              <th scope="row" class="border border-gray-300 px-4 py-2">{{$lp++}} id[{{$post['id']}}]</th>
                             {{-- <td class="border border-gray-300 px-4 py-2">{{$post->tytul}}</td> --}}
                             <td class="border border-gray-300 px-4 py-2"><a  href="{{route('post.show',$post['id'])}}">{{$post->tytul}}</a></td>
-                            <td class="border border-gray-300 px-4 py-2">{{$post->autor}}</td>
+                            {{-- <td class="border border-gray-300 px-4 py-2">{{$post->autor}}</td> --}}
+                            <td class="border border-gray-300 px-4 py-2">{{$post->user->name}}</td>
                             {{-- <td>{{date('j F Y H:i:s', strtotime($post->created_at))}}</td> --}}
                             <td class="border border-gray-300 px-4 py-2">{{$post->created_at->locale('pl')->setTimeZone('Europe/Warsaw')->translatedFormat('j F Y')}} </td>
                             @auth

@@ -7,11 +7,11 @@
 
         </div>
         <div class="mb-2"><label for="autor" class="block text-gray-700 font-bold mb-2">Autor</label>
-            <input type="text" name="autor" id="autor" value="{{$post->autor}}" placeholder="Podaj autora postu" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" disabled>
+            <input type="text" name="autor" id="autor" value="{{$post->user->name}}" placeholder="Podaj autora postu" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" disabled>
 
         </div>
         <div class="mb-2"><label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-            <input type="text" name="email" id="email"  value="{{$post->email}}" placeholder="Podaj email autora postu" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" disabled>
+            <input type="text" name="email" id="email"  value="{{$post->user->email}}" placeholder="Podaj email autora postu" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" disabled>
         </div>
         <div class="mb-2">
             <label for="data" class="block text-gray-700 font-bold mb-2">Daty:</label>

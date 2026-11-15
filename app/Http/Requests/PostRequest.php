@@ -29,8 +29,8 @@ class PostRequest extends FormRequest
                 'min:3',
                 'max:200'
                 ],
-            'autor' => 'required|min:2|max:100',
-            'email' => 'required|email:rfc,dns|min:3|max:200',
+           // 'autor' => 'required|min:2|max:100',
+           // 'email' => 'required|email:rfc,dns|min:3|max:200',
             'tresc' => 'required|min:5'
         ];
     }
