@@ -25,7 +25,8 @@
         <tbody>
             @isset($posty)
                 @if ($posty->count())
-                @php($lp=1)
+                {{-- @php($lp=1) --}}
+                @php($lp=$posty->firstItem())
                     @foreach ($posty as $post)
                         <tr>
                             {{-- <th scope="row" class="border border-gray-300 px-4 py-2">{{$post['id']}}</th> --}}
@@ -57,4 +58,10 @@
             @endisset
         </tbody>
     </table>
+    @isset($posty)
+    <div class="mt-3">
+         {{ $posty->onEachSide(1)->links() }}
+    </div>
+       
+    @endisset
 @endsection
